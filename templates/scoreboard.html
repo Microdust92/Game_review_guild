@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Scoreboard</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Date</th>
+        </tr>
+        {% for s in scores %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.score }}</td>
+            <td>{{ s.date_submitted.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}    
+    </table>
+    <a href="{{ url_for('homepage') }}" class="btn-finish">Play Again</a>
+
+</div>
+
+{% endblock %}

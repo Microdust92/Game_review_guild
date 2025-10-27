@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Edit Review{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Review #{{ review.id }}</h1>
+
+    <form method="POST">
+        <label for="player_name">Player Name:</label><br>
+        <input type="text" name="player_name" id="player_name" value="{{ review.player_name }}" required><br><br>
+
+        <label for="rating">Rating (1-5):</label><br>
+        <input type="number" name="rating" id="rating" min="1" max="5" value="{{ review.rating }}" required><br><br>
+
+        <label for="review_text">Review Text:</label><br>
+        <textarea name="review_text" id="review_text" rows="4" required>{{ review.review_text }}</textarea><br><br>
+
+        <button type="submit" class="btn">Save Changes</button>
+        <a href="{{ url_for('admin_maintenance') }}" class="btn cancel">Cancel</a>
+    </form>
+</div>
+{% endblock %}

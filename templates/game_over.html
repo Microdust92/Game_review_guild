@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Game Over</h1>
+    <p>Your final score is: {{ score }}</p>
+    
+    <script>
+
+        if (window.opener) {
+            window.opener.location.href = "{{ url_for('scoreboard') }}";
+            window.close();
+        } else {
+            window.location.href = "{{ url_for('scoreboard') }}";
+        }   
+    </script>
+
+    <p>Returning to the scoreboard...</p>
+{% endblock %}

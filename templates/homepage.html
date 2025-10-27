@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Home | Game Review - Reborn in a New World{% endblock %}
+{% block content %}
+<div class ="container">
+    <h1>Welcome to the Game Review Guild!</h1>
+
+    <h3>Game of the month: Reborn in a New World Text Adventure</h3>
+
+    <p>Click the button below to start reviewing the game.</p>
+
+    <button type="button" onclick="window.location.href='{{ url_for('game_play') }}'">
+    Start Game
+    </button>
+
+    <!-- <button type="button" onclick="window.open('{{ url_for('game_play') }}', 'Gamewindow', 'width=900,height=700, resizable=yes,scrollbars=yes');">
+        Start Game
+    </button> -->
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Game Review{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                <li><a href="{{ url_for('scoreboard') }}">Scoreboard</a></li>
+                <li><a href="{{ url_for('game_play') }}">Play Game</a></li></li>
+                <li><a href="{{ url_for('review_board') }}">Review Board</a></li>
+                <li><a href="{{ url_for('admin_maintenance') }}">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy;© 2025 - Game Review</p>
+    </footer>
+</body>
+</html>

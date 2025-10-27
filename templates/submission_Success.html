@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Submission Successful{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1>Thank you for your submission!</h1>
+    <p>Your review has been successfully submitted.</p>
+
+    <div class="links">
+        <a href="{{ url_for('review_board') }}">Back to Reviews</a> |
+        <a href="{{ url_for('homepage') }}">Return toHome</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Reborn in a New World</h1>
+
+    <pre>{{ output }}</pre>
+
+    {% if 'GameOver' not in output and 'YOU WIN' not in output and 'YOU LOSE' not in output %}
+    <form method="POST" class="game-form">
+        <input type="text" name="user_input" placeholder="Enter your choice..." autocomplete="off" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% else %}
+        <div class="game-end">
+        
+        <a href="{{ url_for('scoreboard') }}" class="btn-finish">Finish Game</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

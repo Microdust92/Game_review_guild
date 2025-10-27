@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Review Board | Reborn in a New World{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Game Reviews</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" class="review-form">
+        <label for="player_name2">Name:</label><br>
+        <input type="text" id="player_name2" name="player_name" required>
+
+        <label for="rating">Rating (1-5):</label><br>
+        <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+        <label for="review_text">Review:</label><br>
+        <textarea id="review_text" name="review_text" rows="4" required></textarea>
+
+        <button type="submit" class="btn">Submit Review</button>
+    </form>
+
+    <hr>
+    <h2>Recent Reviews</h2>
+    {% if reviews %}
+        <ul class="review-list">
+            {% for review in reviews %}
+                <li>
+                    <strong>{{ review.player_name2 }}</strong> - Rating: {{ review.rating }}/5<br>
+                    {{ review.review_text }}<br>
+                    <small>Posted on {{ review.date_submitted.strftime('%Y-%m-%d %H:%M') }}</small>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews yet. Be the first to review!</p>
+    {% endif %}
+</div>
+{% endblock %}
